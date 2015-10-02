@@ -22,6 +22,7 @@ import brut.androlib.res.data.ResPackage;
 import brut.androlib.res.data.ResResSpec;
 import brut.androlib.res.data.value.ResAttr;
 import brut.androlib.res.data.value.ResScalarValue;
+import java.lang.ClassCastException;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>
@@ -40,6 +41,8 @@ public class ResAttrDecoder {
 
                 decoded = attr.convertToResXmlFormat(resValue);
             } catch (UndefinedResObject ex) {
+                // ignored
+            } catch (ClassCastException ex) {
                 // ignored
             }
         }
